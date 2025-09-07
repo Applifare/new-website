@@ -8,14 +8,15 @@
     </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
 
       * {
         box-sizing: border-box;
       }
       body {
-        font-family: "Inter", sans-serif;
+        font-family: "Poppins", sans-serif;
         background: #0a0a0a;
         color: #ffffff;
         overflow-x: hidden;
@@ -51,20 +52,6 @@
           #ec4899 75%,
           #f59e0b 100%
         );
-        background-size: 400% 400%;
-        animation: gradientShift 8s ease infinite;
-      }
-
-      @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
       }
 
       .card-hover {
@@ -115,13 +102,66 @@
         transform: translateY(0);
       }
 
-      .glow-effect {
-        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .slide-in-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .slide-in-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scale-in {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .scale-in.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .stagger-animation {
+        transition-delay: 0.1s;
+      }
+
+      .stagger-animation:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .stagger-animation:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .stagger-animation:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .stagger-animation:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .stagger-animation:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+
+      .subtle-shadow {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         transition: box-shadow 0.3s ease;
       }
 
-      .glow-effect:hover {
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+      .subtle-shadow:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
       .code-font {
@@ -185,36 +225,81 @@
   <body class="bg-dark">
     <!-- Header -->
     <header
-      class="bg-dark-card backdrop-filter backdrop-blur-lg shadow-2xl sticky top-0 z-50 border-b border-gray-800"
+      class="bg-black/90 backdrop-blur-xl border-b border-gray-800/50 sticky top-0 z-50 transition-all duration-300"
     >
-      <nav class="container mx-auto px-6 py-4">
+      <nav class="container mx-auto px-6 py-5">
         <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-3">
-            <div
-              class="w-12 h-12 tech-gradient rounded-xl flex items-center justify-center glow-effect floating-animation"
-            >
-              <span class="text-white font-bold text-xl code-font">A</span>
+          <div class="flex items-center space-x-4 slide-in-left">
+            <div class="relative">
+              <div
+                class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg"
+              >
+                <span
+                  class="text-white font-bold text-lg"
+                  style="font-family: 'Space Grotesk', sans-serif"
+                  >A</span
+                >
+              </div>
+              <div
+                class="absolute -inset-1 bg-blue-600/20 rounded-lg blur opacity-20"
+              ></div>
             </div>
-            <span class="text-2xl font-bold text-white"
-              >Applifare <span class="text-tech-blue">Technologies</span></span
-            >
+            <div>
+              <span
+                class="text-xl font-bold text-white"
+                style="font-family: 'Space Grotesk', sans-serif"
+              >
+                Applifare <span class="text-tech-blue">Technologies</span>
+              </span>
+              <div class="text-xs text-gray-400 font-medium tracking-wider">
+                DIGITAL INNOVATION
+              </div>
+            </div>
           </div>
-          <div class="hidden md:flex space-x-8">
-            <a href="#home" class="nav-link text-gray-300 font-medium">Home</a>
-            <a href="#services" class="nav-link text-gray-300 font-medium"
+
+          <div
+            class="hidden lg:flex items-center space-x-1 bg-gray-900/50 rounded-full p-1 backdrop-blur-sm border border-gray-800/50"
+          >
+            <a
+              href="#home"
+              class="nav-link px-4 py-2 rounded-full text-gray-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all duration-300"
+              >Home</a
+            >
+            <a
+              href="#services"
+              class="nav-link px-4 py-2 rounded-full text-gray-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all duration-300"
               >Services</a
             >
-            <a href="#about" class="nav-link text-gray-300 font-medium"
-              >About Us</a
+            <a
+              href="#about"
+              class="nav-link px-4 py-2 rounded-full text-gray-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all duration-300"
+              >About</a
             >
-            <a href="#why-choose-us" class="nav-link text-gray-300 font-medium"
-              >Why Choose Us</a
+            <a
+              href="#why-choose-us"
+              class="nav-link px-4 py-2 rounded-full text-gray-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all duration-300"
+              >Why Us</a
             >
-            <a href="#contact" class="nav-link text-gray-300 font-medium"
+            <a
+              href="#contact"
+              class="nav-link px-4 py-2 rounded-full text-gray-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all duration-300"
               >Contact</a
             >
           </div>
-          <button class="md:hidden text-gray-300" onclick="toggleMobileMenu()">
+
+          <div class="hidden lg:flex items-center space-x-4 slide-in-right">
+            <button
+              onclick="scrollToSection('contact')"
+              class="px-6 py-2.5 bg-tech-blue/20 text-tech-blue border border-tech-blue/30 rounded-full font-medium text-sm hover:bg-tech-blue hover:text-white transition-all duration-300"
+            >
+              Get Started
+            </button>
+          </div>
+
+          <button
+            class="lg:hidden text-gray-300 p-2 hover:bg-gray-800/50 rounded-lg transition-colors"
+            onclick="toggleMobileMenu()"
+          >
             <svg
               class="w-6 h-6"
               fill="none"
@@ -230,14 +315,46 @@
             </svg>
           </button>
         </div>
-        <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
-          <a href="#home" class="block py-2 text-gray-300">Home</a>
-          <a href="#services" class="block py-2 text-gray-300">Services</a>
-          <a href="#about" class="block py-2 text-gray-300">About Us</a>
-          <a href="#why-choose-us" class="block py-2 text-gray-300"
-            >Why Choose Us</a
-          >
-          <a href="#contact" class="block py-2 text-gray-300">Contact</a>
+
+        <div
+          id="mobileMenu"
+          class="hidden lg:hidden mt-6 pb-4 border-t border-gray-800/50 pt-4"
+        >
+          <div class="space-y-2">
+            <a
+              href="#home"
+              class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-300"
+              >Home</a
+            >
+            <a
+              href="#services"
+              class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-300"
+              >Services</a
+            >
+            <a
+              href="#about"
+              class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-300"
+              >About</a
+            >
+            <a
+              href="#why-choose-us"
+              class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-300"
+              >Why Us</a
+            >
+            <a
+              href="#contact"
+              class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-300"
+              >Contact</a
+            >
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-800/50">
+            <button
+              onclick="scrollToSection('contact')"
+              class="w-full px-6 py-3 bg-tech-blue text-white rounded-lg font-medium hover:bg-tech-blue/80 transition-all duration-300"
+            >
+              Get Started
+            </button>
+          </div>
         </div>
       </nav>
     </header>
@@ -265,12 +382,15 @@
         ></div>
       </div>
       <div class="container mx-auto px-6 text-center relative z-10">
-        <div class="mb-8 section-fade">
+        <div class="mb-8 slide-in-left">
           <span class="code-font text-tech-blue text-sm tracking-wider"
             >// WELCOME TO THE FUTURE</span
           >
         </div>
-        <h1 class="text-6xl md:text-7xl font-black mb-8 section-fade">
+        <h1
+          class="text-6xl md:text-7xl font-black mb-8 scale-in"
+          style="font-family: 'Space Grotesk', sans-serif"
+        >
           <span class="text-tech-blue">Transforming</span> Ideas<br />
           into
           <span class="tech-gradient bg-clip-text text-transparent"
@@ -278,7 +398,7 @@
           >
         </h1>
         <p
-          class="text-xl md:text-2xl mb-12 opacity-90 section-fade max-w-4xl mx-auto leading-relaxed"
+          class="text-xl md:text-2xl mb-12 opacity-90 slide-in-right max-w-4xl mx-auto leading-relaxed"
         >
           We empower businesses to thrive in the digital age. Our expertise in
           <span class="text-tech-purple font-semibold">custom software</span>,
@@ -295,7 +415,7 @@
         >
           <button
             onclick="scrollToSection('services')"
-            class="tech-gradient px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 glow-effect shadow-2xl"
+            class="bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-lg"
           >
             <span class="flex items-center">
               <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -329,7 +449,7 @@
             </span>
           </button>
         </div>
-        <div class="mt-16 section-fade">
+        <div class="mt-16 slide-in-left">
           <div class="flex justify-center items-center space-x-8 opacity-60">
             <div class="code-font text-sm">
               <span class="text-tech-blue">const</span>
@@ -361,10 +481,10 @@
               class="bg-dark-card p-8 rounded-2xl border border-gray-800 card-hover"
             >
               <div
-                class="w-16 h-16 tech-gradient rounded-xl flex items-center justify-center mb-6 glow-effect"
+                class="w-16 h-16 bg-gray-800/50 border border-gray-700/50 rounded-xl flex items-center justify-center mb-6"
               >
                 <svg
-                  class="w-8 h-8 text-white"
+                  class="w-8 h-8 text-blue-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -386,10 +506,10 @@
               class="bg-dark-card p-8 rounded-2xl border border-gray-800 card-hover"
             >
               <div
-                class="w-16 h-16 tech-gradient rounded-xl flex items-center justify-center mb-6 glow-effect"
+                class="w-16 h-16 bg-gray-800/50 border border-gray-700/50 rounded-xl flex items-center justify-center mb-6"
               >
                 <svg
-                  class="w-8 h-8 text-white"
+                  class="w-8 h-8 text-purple-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -442,13 +562,13 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div
-            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group"
+            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover scale-in stagger-animation group"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gray-700/50 group-hover:border-blue-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-blue-400 group-hover:text-blue-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -457,6 +577,7 @@
             </div>
             <h3
               class="text-2xl font-bold text-white mb-4 group-hover:text-tech-blue transition-colors"
+              style="font-family: 'Space Grotesk', sans-serif"
             >
               Atlassian Marketplace Apps
             </h3>
@@ -483,13 +604,13 @@
           </div>
 
           <div
-            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group"
+            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover scale-in stagger-animation group"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gray-700/50 group-hover:border-purple-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-purple-400 group-hover:text-purple-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -500,6 +621,7 @@
             </div>
             <h3
               class="text-2xl font-bold text-white mb-4 group-hover:text-tech-purple transition-colors"
+              style="font-family: 'Space Grotesk', sans-serif"
             >
               Atlassian Consulting
             </h3>
@@ -529,13 +651,13 @@
           </div>
 
           <div
-            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group"
+            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover scale-in stagger-animation group"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gray-700/50 group-hover:border-pink-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-pink-400 group-hover:text-pink-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -548,6 +670,7 @@
             </div>
             <h3
               class="text-2xl font-bold text-white mb-4 group-hover:text-tech-pink transition-colors"
+              style="font-family: 'Space Grotesk', sans-serif"
             >
               Digital Transformation
             </h3>
@@ -574,13 +697,13 @@
           </div>
 
           <div
-            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group"
+            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover scale-in stagger-animation group"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gray-700/50 group-hover:border-blue-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-blue-400 group-hover:text-blue-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -593,6 +716,7 @@
             </div>
             <h3
               class="text-2xl font-bold text-white mb-4 group-hover:text-tech-blue transition-colors"
+              style="font-family: 'Space Grotesk', sans-serif"
             >
               Enterprise Software Development
             </h3>
@@ -619,13 +743,13 @@
           </div>
 
           <div
-            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group lg:col-span-2"
+            class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover scale-in stagger-animation group lg:col-span-2"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gray-700/50 group-hover:border-purple-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-purple-400 group-hover:text-purple-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -636,6 +760,7 @@
             </div>
             <h3
               class="text-2xl font-bold text-white mb-4 group-hover:text-tech-purple transition-colors"
+              style="font-family: 'Space Grotesk', sans-serif"
             >
               Training and Enablement
             </h3>
@@ -696,10 +821,10 @@
             class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group text-center"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gray-700/50 group-hover:border-blue-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-blue-400 group-hover:text-blue-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -722,10 +847,10 @@
             class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group text-center"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gray-700/50 group-hover:border-purple-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-purple-400 group-hover:text-purple-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -753,10 +878,10 @@
             class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group text-center"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gray-700/50 group-hover:border-pink-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-pink-400 group-hover:text-pink-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -783,10 +908,10 @@
             class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group text-center"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gray-700/50 group-hover:border-green-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-green-400 group-hover:text-green-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -798,7 +923,7 @@
               </svg>
             </div>
             <h3
-              class="text-2xl font-bold text-white mb-4 group-hover:text-tech-blue transition-colors"
+              class="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors"
             >
               Quality Assurance
             </h3>
@@ -812,10 +937,10 @@
             class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group text-center"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gray-700/50 group-hover:border-orange-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-orange-400 group-hover:text-orange-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -827,7 +952,7 @@
               </svg>
             </div>
             <h3
-              class="text-2xl font-bold text-white mb-4 group-hover:text-tech-purple transition-colors"
+              class="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors"
             >
               Timely Delivery
             </h3>
@@ -841,10 +966,10 @@
             class="bg-dark-card rounded-2xl p-8 border border-gray-800 card-hover section-fade group text-center"
           >
             <div
-              class="w-20 h-20 tech-gradient rounded-2xl flex items-center justify-center mx-auto mb-6 glow-effect group-hover:scale-110 transition-transform duration-300"
+              class="w-20 h-20 bg-gray-800/50 border border-gray-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gray-700/50 group-hover:border-cyan-500/30 transition-all duration-300"
             >
               <svg
-                class="w-10 h-10 text-white"
+                class="w-10 h-10 text-cyan-400 group-hover:text-cyan-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -917,7 +1042,7 @@
                 <div class="space-y-4">
                   <div class="flex items-center">
                     <div
-                      class="w-8 h-8 tech-gradient rounded-lg flex items-center justify-center mr-4"
+                      class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-4"
                     >
                       <svg
                         class="w-4 h-4 text-white"
@@ -937,7 +1062,7 @@
                   </div>
                   <div class="flex items-center">
                     <div
-                      class="w-8 h-8 tech-gradient rounded-lg flex items-center justify-center mr-4"
+                      class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-4"
                     >
                       <svg
                         class="w-4 h-4 text-white"
@@ -957,7 +1082,7 @@
                   </div>
                   <div class="flex items-center">
                     <div
-                      class="w-8 h-8 tech-gradient rounded-lg flex items-center justify-center mr-4"
+                      class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-4"
                     >
                       <svg
                         class="w-4 h-4 text-white"
@@ -980,7 +1105,7 @@
 
               <div class="text-center">
                 <div
-                  class="w-80 h-80 tech-gradient rounded-full mx-auto flex items-center justify-center glow-effect floating-animation"
+                  class="w-80 h-80 bg-blue-600 rounded-full mx-auto flex items-center justify-center shadow-2xl floating-animation"
                 >
                   <div
                     class="w-64 h-64 bg-dark rounded-full flex items-center justify-center border border-gray-700"
@@ -1034,10 +1159,10 @@
             <div class="space-y-6">
               <div class="flex items-center">
                 <div
-                  class="w-12 h-12 tech-gradient rounded-xl flex items-center justify-center mr-6 glow-effect"
+                  class="w-12 h-12 bg-gray-800/50 border border-gray-700/50 rounded-xl flex items-center justify-center mr-6"
                 >
                   <svg
-                    class="w-6 h-6 text-white"
+                    class="w-6 h-6 text-blue-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -1057,10 +1182,10 @@
 
               <div class="flex items-center">
                 <div
-                  class="w-12 h-12 tech-gradient rounded-xl flex items-center justify-center mr-6 glow-effect"
+                  class="w-12 h-12 bg-gray-800/50 border border-gray-700/50 rounded-xl flex items-center justify-center mr-6"
                 >
                   <svg
-                    class="w-6 h-6 text-white"
+                    class="w-6 h-6 text-purple-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -1173,7 +1298,7 @@
 
               <button
                 type="submit"
-                class="w-full tech-gradient py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 glow-effect"
+                class="w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-lg"
               >
                 Send Message
               </button>
@@ -1195,7 +1320,7 @@
           <div>
             <div class="flex items-center space-x-3 mb-6">
               <div
-                class="w-12 h-12 tech-gradient rounded-xl flex items-center justify-center glow-effect"
+                class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg"
               >
                 <span class="text-white font-bold text-xl code-font">A</span>
               </div>
@@ -1385,12 +1510,12 @@
             </p>
             <a
               href="mailto:hello@applifare.com"
-              class="tech-gradient px-6 py-3 rounded-xl font-bold hover:scale-105 transition-all duration-300 glow-effect inline-block mb-6"
+              class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-bold hover:scale-105 transition-all duration-300 shadow-lg inline-block mb-6"
               >Get Started</a
             >
             <div class="flex space-x-4">
               <button
-                class="w-12 h-12 bg-dark-card border border-gray-700 text-tech-blue rounded-xl flex items-center justify-center hover:bg-tech-blue hover:text-white transition-all duration-300 glow-effect"
+                class="w-12 h-12 bg-gray-800/50 border border-gray-700/50 text-blue-400 rounded-xl flex items-center justify-center hover:bg-blue-500/10 hover:border-blue-500/30 hover:text-blue-300 transition-all duration-300"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -1399,7 +1524,7 @@
                 </svg>
               </button>
               <button
-                class="w-12 h-12 bg-dark-card border border-gray-700 text-tech-purple rounded-xl flex items-center justify-center hover:bg-tech-purple hover:text-white transition-all duration-300 glow-effect"
+                class="w-12 h-12 bg-gray-800/50 border border-gray-700/50 text-purple-400 rounded-xl flex items-center justify-center hover:bg-purple-500/10 hover:border-purple-500/30 hover:text-purple-300 transition-all duration-300"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -1408,7 +1533,7 @@
                 </svg>
               </button>
               <button
-                class="w-12 h-12 bg-dark-card border border-gray-700 text-tech-pink rounded-xl flex items-center justify-center hover:bg-tech-pink hover:text-white transition-all duration-300 glow-effect"
+                class="w-12 h-12 bg-gray-800/50 border border-gray-700/50 text-pink-400 rounded-xl flex items-center justify-center hover:bg-pink-500/10 hover:border-pink-500/30 hover:text-pink-300 transition-all duration-300"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -1480,10 +1605,14 @@
         });
       }, observerOptions);
 
-      // Observe all elements with section-fade class
-      document.querySelectorAll(".section-fade").forEach((el) => {
-        observer.observe(el);
-      });
+      // Observe all elements with animation classes
+      document
+        .querySelectorAll(
+          ".section-fade, .slide-in-left, .slide-in-right, .scale-in"
+        )
+        .forEach((el) => {
+          observer.observe(el);
+        });
 
       // Form submission handlers
       function handleFormSubmit(event) {
@@ -1496,12 +1625,16 @@
       // Initialize animations on page load
       window.addEventListener("load", () => {
         // Trigger initial animations for elements in viewport
-        document.querySelectorAll(".section-fade").forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight && rect.bottom > 0) {
-            el.classList.add("visible");
-          }
-        });
+        document
+          .querySelectorAll(
+            ".section-fade, .slide-in-left, .slide-in-right, .scale-in"
+          )
+          .forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              el.classList.add("visible");
+            }
+          });
       });
     </script>
     <script>
@@ -1511,7 +1644,7 @@
           if (b) {
             var d = b.createElement("script");
             d.innerHTML =
-              "window.__CF$cv$params={r:'97b63da2e06e0bc9',t:'MTc1NzI0ODQ3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+              "window.__CF$cv$params={r:'97b6546b56e3851f',t:'MTc1NzI0OTQwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
             b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
