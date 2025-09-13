@@ -20,6 +20,102 @@
         background: #0a0a0a;
         color: #ffffff;
         overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Light theme styles */
+      body.light-theme {
+        background: #f8fafc;
+        color: #1e293b;
+      }
+
+      .light-theme .bg-dark {
+        background: #f8fafc;
+      }
+      .light-theme .bg-dark-card {
+        background: rgba(255, 255, 255, 0.9);
+      }
+      .light-theme .bg-black {
+        background: #ffffff;
+      }
+      .light-theme .bg-gray-900 {
+        background: #f1f5f9;
+      }
+      .light-theme .bg-gradient-to-b {
+        background: #ffffff !important;
+      }
+      .light-theme .bg-gradient-to-br {
+        background: #f8fafc !important;
+      }
+      .light-theme .bg-gradient-to-t {
+        background: #ffffff !important;
+      }
+      .light-theme .text-white {
+        color: #1e293b;
+      }
+      .light-theme .text-gray-300 {
+        color: #64748b;
+      }
+      .light-theme .text-gray-400 {
+        color: #94a3b8;
+      }
+      .light-theme .border-gray-800 {
+        border-color: #e2e8f0;
+      }
+      .light-theme .border-gray-700 {
+        border-color: #cbd5e1;
+      }
+      .light-theme .bg-gray-800 {
+        background: #f1f5f9;
+      }
+      .light-theme .bg-gray-700 {
+        background: #e2e8f0;
+      }
+      .light-theme .hover\:bg-gray-800:hover {
+        background: #e2e8f0;
+      }
+      .light-theme .hover\:bg-gray-700:hover {
+        background: #cbd5e1;
+      }
+      .light-theme .bg-gray-800\/50 {
+        background: rgba(241, 245, 249, 0.8);
+      }
+      .light-theme .bg-gray-700\/50 {
+        background: rgba(226, 232, 240, 0.8);
+      }
+      .light-theme .border-gray-800\/50 {
+        border-color: rgba(226, 232, 240, 0.5);
+      }
+      .light-theme .border-gray-700\/50 {
+        border-color: rgba(203, 213, 225, 0.5);
+      }
+      .light-theme .bg-black\/90 {
+        background: rgba(255, 255, 255, 0.95);
+      }
+      .light-theme .hover\:bg-white\/10:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+      .light-theme .bg-white\/10 {
+        background: rgba(0, 0, 0, 0.05);
+      }
+      .light-theme .border-white\/30 {
+        border-color: rgba(0, 0, 0, 0.2);
+      }
+      .light-theme .hover\:border-white\/50:hover {
+        border-color: rgba(0, 0, 0, 0.3);
+      }
+
+      /* Card hover effects for light theme */
+      .light-theme .card-hover {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .light-theme .card-hover:hover {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1),
+          0 0 0 1px rgba(0, 0, 0, 0.05);
       }
 
       .gradient-bg {
@@ -211,6 +307,9 @@
       .text-tech-pink {
         color: #ec4899;
       }
+      .text-tech-green {
+        color: #10b981;
+      }
 
       .tech-border {
         border: 1px solid;
@@ -281,6 +380,11 @@
               >Why Us</a
             >
             <a
+              href="#blogs"
+              class="nav-link px-4 py-2 rounded-full text-gray-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all duration-300"
+              >Blog</a
+            >
+            <a
               href="#contact"
               class="nav-link px-4 py-2 rounded-full text-gray-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all duration-300"
               >Contact</a
@@ -288,6 +392,34 @@
           </div>
 
           <div class="hidden lg:flex items-center space-x-4 slide-in-right">
+            <button
+              onclick="toggleTheme()"
+              class="p-2.5 bg-gray-800/50 border border-gray-700/50 rounded-full hover:bg-gray-700/50 hover:border-gray-600/50 transition-all duration-300"
+              title="Toggle Theme"
+            >
+              <svg
+                id="theme-icon-dark"
+                class="w-5 h-5 text-yellow-400 hidden dark:block"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <svg
+                id="theme-icon-light"
+                class="w-5 h-5 text-gray-400 block dark:hidden"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+            </button>
             <button
               onclick="scrollToSection('contact')"
               class="px-6 py-2.5 bg-tech-blue/20 text-tech-blue border border-tech-blue/30 rounded-full font-medium text-sm hover:bg-tech-blue hover:text-white transition-all duration-300"
@@ -342,12 +474,45 @@
               >Why Us</a
             >
             <a
+              href="#blogs"
+              class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-300"
+              >Blog</a
+            >
+            <a
               href="#contact"
               class="block py-3 px-4 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all duration-300"
               >Contact</a
             >
           </div>
-          <div class="mt-4 pt-4 border-t border-gray-800/50">
+          <div class="mt-4 pt-4 border-t border-gray-800/50 space-y-3">
+            <button
+              onclick="toggleTheme()"
+              class="w-full flex items-center justify-center px-6 py-3 bg-gray-800/50 border border-gray-700/50 text-gray-300 rounded-lg font-medium hover:bg-gray-700/50 hover:text-white transition-all duration-300"
+            >
+              <svg
+                id="mobile-theme-icon-dark"
+                class="w-5 h-5 mr-2 text-yellow-400 hidden dark:block"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <svg
+                id="mobile-theme-icon-light"
+                class="w-5 h-5 mr-2 text-gray-400 block dark:hidden"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              Toggle Theme
+            </button>
             <button
               onclick="scrollToSection('contact')"
               class="w-full px-6 py-3 bg-tech-blue text-white rounded-lg font-medium hover:bg-tech-blue/80 transition-all duration-300"
@@ -1125,6 +1290,407 @@
       </div>
     </section>
 
+    <!-- Blog Section -->
+    <section
+      id="blogs"
+      class="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
+    >
+      <div class="absolute inset-0">
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-900/10 via-transparent to-purple-900/10"
+        ></div>
+      </div>
+      <div class="container mx-auto px-6 relative">
+        <div class="text-center mb-16 section-fade">
+          <div class="mb-6">
+            <span class="code-font text-tech-green text-sm tracking-wider"
+              >// INSIGHTS & UPDATES</span
+            >
+          </div>
+          <h2 class="text-5xl font-black text-white mb-6">
+            Latest <span class="text-tech-purple">Insights</span>
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Stay updated with the latest trends, tips, and insights from the
+            world of software development and digital transformation
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <!-- Featured Blog Post -->
+          <div
+            class="lg:col-span-2 bg-dark-card rounded-2xl overflow-hidden border border-gray-800 card-hover section-fade group"
+          >
+            <div
+              class="h-64 bg-gradient-to-br from-blue-600 to-purple-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 bg-black/20"></div>
+              <div class="absolute bottom-4 left-6">
+                <span
+                  class="bg-tech-blue text-white px-3 py-1 rounded-full text-sm font-medium"
+                  >Featured</span
+                >
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg
+                  class="w-16 h-16 text-white/30"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="flex items-center text-sm text-gray-400 mb-4">
+                <span class="code-font">Dec 15, 2024</span>
+                <span class="mx-2">•</span>
+                <span>5 min read</span>
+                <span class="mx-2">•</span>
+                <span class="text-tech-blue">Development</span>
+              </div>
+              <h3
+                class="text-2xl font-bold text-white mb-4 group-hover:text-tech-blue transition-colors"
+              >
+                The Future of Enterprise Software Development: Trends to Watch
+                in 2025
+              </h3>
+              <p class="text-gray-300 leading-relaxed mb-6">
+                Explore the emerging trends that will shape enterprise software
+                development in 2025, from AI-powered development tools to
+                cloud-native architectures and beyond.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <div
+                    class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mr-3"
+                  >
+                    <span class="text-white font-medium text-sm">AT</span>
+                  </div>
+                  <div>
+                    <p class="text-white font-medium text-sm">Applifare Team</p>
+                    <p class="text-gray-400 text-xs">Tech Lead</p>
+                  </div>
+                </div>
+                <button
+                  onclick="showBlogModal('blog1')"
+                  class="flex items-center text-tech-blue font-semibold hover:text-tech-purple transition-colors"
+                >
+                  <span class="code-font text-sm mr-2">Read More</span>
+                  <svg
+                    class="w-4 h-4 group-hover:translate-x-2 transition-transform"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Regular Blog Posts -->
+          <div
+            class="bg-dark-card rounded-2xl overflow-hidden border border-gray-800 card-hover section-fade group"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-purple-600 to-pink-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 bg-black/20"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg
+                  class="w-12 h-12 text-white/30"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-400 mb-3">
+                <span class="code-font">Dec 10, 2024</span>
+                <span class="mx-2">•</span>
+                <span>3 min read</span>
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-3 group-hover:text-tech-purple transition-colors"
+              >
+                Maximizing Team Productivity with Atlassian Tools
+              </h3>
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Learn how to optimize your team's workflow using Jira,
+                Confluence, and other Atlassian tools for maximum efficiency.
+              </p>
+              <button
+                onclick="showBlogModal('blog2')"
+                class="flex items-center text-tech-purple font-semibold hover:text-tech-pink transition-colors"
+              >
+                <span class="code-font text-sm mr-2">Read More</span>
+                <svg
+                  class="w-4 h-4 group-hover:translate-x-2 transition-transform"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-dark-card rounded-2xl overflow-hidden border border-gray-800 card-hover section-fade group"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-green-600 to-blue-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 bg-black/20"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg
+                  class="w-12 h-12 text-white/30"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-400 mb-3">
+                <span class="code-font">Dec 5, 2024</span>
+                <span class="mx-2">•</span>
+                <span>4 min read</span>
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors"
+              >
+                Digital Transformation Success Stories
+              </h3>
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Real-world examples of how businesses have successfully
+                transformed their operations through strategic technology
+                adoption.
+              </p>
+              <button
+                onclick="showBlogModal('blog3')"
+                class="flex items-center text-green-400 font-semibold hover:text-blue-400 transition-colors"
+              >
+                <span class="code-font text-sm mr-2">Read More</span>
+                <svg
+                  class="w-4 h-4 group-hover:translate-x-2 transition-transform"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-dark-card rounded-2xl overflow-hidden border border-gray-800 card-hover section-fade group"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-orange-600 to-red-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 bg-black/20"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg
+                  class="w-12 h-12 text-white/30"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm2.5 5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-400 mb-3">
+                <span class="code-font">Nov 28, 2024</span>
+                <span class="mx-2">•</span>
+                <span>6 min read</span>
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors"
+              >
+                Building Scalable Marketplace Apps
+              </h3>
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                A comprehensive guide to developing and launching successful
+                apps on the Atlassian Marketplace.
+              </p>
+              <button
+                onclick="showBlogModal('blog4')"
+                class="flex items-center text-orange-400 font-semibold hover:text-red-400 transition-colors"
+              >
+                <span class="code-font text-sm mr-2">Read More</span>
+                <svg
+                  class="w-4 h-4 group-hover:translate-x-2 transition-transform"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-dark-card rounded-2xl overflow-hidden border border-gray-800 card-hover section-fade group"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-cyan-600 to-blue-600 relative overflow-hidden"
+            >
+              <div class="absolute inset-0 bg-black/20"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg
+                  class="w-12 h-12 text-white/30"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-400 mb-3">
+                <span class="code-font">Nov 20, 2024</span>
+                <span class="mx-2">•</span>
+                <span>5 min read</span>
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors"
+              >
+                Security Best Practices for Enterprise Apps
+              </h3>
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                Essential security considerations and best practices when
+                developing enterprise-grade applications.
+              </p>
+              <button
+                onclick="showBlogModal('blog5')"
+                class="flex items-center text-cyan-400 font-semibold hover:text-blue-400 transition-colors"
+              >
+                <span class="code-font text-sm mr-2">Read More</span>
+                <svg
+                  class="w-4 h-4 group-hover:translate-x-2 transition-transform"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12 section-fade">
+          <button
+            onclick="showAllBlogs()"
+            class="bg-tech-purple hover:bg-tech-pink px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-lg"
+          >
+            <span class="flex items-center">
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              View All Blog Posts
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div
+      id="blogModal"
+      class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-dark-card rounded-2xl border border-gray-800 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+      >
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h2
+                id="modalTitle"
+                class="text-3xl font-bold text-white mb-2"
+              ></h2>
+              <div
+                id="modalMeta"
+                class="flex items-center text-sm text-gray-400"
+              ></div>
+            </div>
+            <button
+              onclick="closeBlogModal()"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div id="modalContent" class="prose prose-invert max-w-none">
+            <!-- Blog content will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Contact Section -->
     <section
       id="contact"
@@ -1464,8 +2030,27 @@
               </li>
               <li>
                 <a
-                  href="#contact"
+                  href="#blogs"
                   class="hover:text-tech-pink transition duration-300 flex items-center group"
+                >
+                  <svg
+                    class="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="hover:text-tech-blue transition duration-300 flex items-center group"
                 >
                   <svg
                     class="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform"
@@ -1484,7 +2069,7 @@
               <li>
                 <a
                   href="#"
-                  class="hover:text-tech-blue transition duration-300 flex items-center group"
+                  class="hover:text-tech-purple transition duration-300 flex items-center group"
                 >
                   <svg
                     class="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform"
@@ -1622,8 +2207,278 @@
         );
       }
 
+      // Theme toggle functionality
+      function toggleTheme() {
+        const body = document.body;
+        const isLightTheme = body.classList.contains("light-theme");
+
+        if (isLightTheme) {
+          body.classList.remove("light-theme");
+          localStorage.setItem("theme", "dark");
+        } else {
+          body.classList.add("light-theme");
+          localStorage.setItem("theme", "light");
+        }
+
+        updateThemeIcons();
+      }
+
+      function updateThemeIcons() {
+        const isLightTheme = document.body.classList.contains("light-theme");
+
+        // Desktop icons
+        const darkIcon = document.getElementById("theme-icon-dark");
+        const lightIcon = document.getElementById("theme-icon-light");
+
+        // Mobile icons
+        const mobileDarkIcon = document.getElementById(
+          "mobile-theme-icon-dark"
+        );
+        const mobileLightIcon = document.getElementById(
+          "mobile-theme-icon-light"
+        );
+
+        if (isLightTheme) {
+          // Show sun icon (switch to dark mode)
+          darkIcon.classList.remove("hidden");
+          lightIcon.classList.add("hidden");
+          mobileDarkIcon.classList.remove("hidden");
+          mobileLightIcon.classList.add("hidden");
+        } else {
+          // Show moon icon (switch to light mode)
+          darkIcon.classList.add("hidden");
+          lightIcon.classList.remove("hidden");
+          mobileDarkIcon.classList.add("hidden");
+          mobileLightIcon.classList.remove("hidden");
+        }
+      }
+
+      // Initialize theme on page load
+      function initializeTheme() {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "light" || (!savedTheme && !prefersDark)) {
+          document.body.classList.add("light-theme");
+        }
+
+        updateThemeIcons();
+      }
+
+      // Blog functionality
+      const blogContent = {
+        blog1: {
+          title:
+            "The Future of Enterprise Software Development: Trends to Watch in 2025",
+          meta: "Dec 15, 2024 • 5 min read • Development",
+          content: `
+                    <h3>Introduction</h3>
+                    <p>As we approach 2025, the enterprise software development landscape is evolving at an unprecedented pace. Organizations are embracing new technologies and methodologies to stay competitive in an increasingly digital world.</p>
+                    
+                    <h3>Key Trends Shaping the Future</h3>
+                    
+                    <h4>1. AI-Powered Development Tools</h4>
+                    <p>Artificial Intelligence is revolutionizing how we write, test, and deploy code. From intelligent code completion to automated testing, AI tools are becoming indispensable for development teams.</p>
+                    
+                    <h4>2. Cloud-Native Architectures</h4>
+                    <p>The shift towards cloud-native development continues to accelerate, with microservices, containers, and serverless computing becoming the standard for scalable enterprise applications.</p>
+                    
+                    <h4>3. Low-Code/No-Code Platforms</h4>
+                    <p>These platforms are democratizing software development, enabling business users to create applications without extensive coding knowledge while allowing developers to focus on more complex challenges.</p>
+                    
+                    <h3>What This Means for Your Business</h3>
+                    <p>Organizations that embrace these trends will be better positioned to innovate quickly, reduce development costs, and deliver superior user experiences. The key is to start planning your digital transformation strategy now.</p>
+                    
+                    <h3>Getting Started</h3>
+                    <p>At Applifare Technologies, we help businesses navigate these emerging trends and implement cutting-edge solutions that drive growth and efficiency. Contact us to learn how we can help transform your software development approach.</p>
+                `,
+        },
+        blog2: {
+          title: "Maximizing Team Productivity with Atlassian Tools",
+          meta: "Dec 10, 2024 • 3 min read • Productivity",
+          content: `
+                    <h3>Introduction</h3>
+                    <p>Atlassian tools like Jira and Confluence have become essential for modern teams. However, many organizations only scratch the surface of what these powerful platforms can do.</p>
+                    
+                    <h3>Optimization Strategies</h3>
+                    
+                    <h4>1. Custom Workflows</h4>
+                    <p>Design workflows that match your team's actual processes, not generic templates. This reduces friction and increases adoption.</p>
+                    
+                    <h4>2. Automation Rules</h4>
+                    <p>Leverage Jira's automation features to eliminate repetitive tasks and ensure consistency across projects.</p>
+                    
+                    <h4>3. Integration Ecosystem</h4>
+                    <p>Connect your Atlassian tools with other systems your team uses daily to create a seamless workflow experience.</p>
+                    
+                    <h3>Best Practices</h3>
+                    <ul>
+                        <li>Regular training sessions for team members</li>
+                        <li>Consistent naming conventions and project structures</li>
+                        <li>Regular review and optimization of workflows</li>
+                        <li>Proper permission management and security practices</li>
+                    </ul>
+                    
+                    <h3>Need Help?</h3>
+                    <p>As an Atlassian Silver Solution Partner, we can help you optimize your Atlassian setup for maximum productivity. Get in touch to learn more about our consulting services.</p>
+                `,
+        },
+        blog3: {
+          title: "Digital Transformation Success Stories",
+          meta: "Dec 5, 2024 • 4 min read • Case Studies",
+          content: `
+                    <h3>Real-World Transformations</h3>
+                    <p>Digital transformation isn't just a buzzword—it's a necessity for modern businesses. Here are some inspiring examples of organizations that successfully transformed their operations.</p>
+                    
+                    <h3>Case Study 1: Manufacturing Company</h3>
+                    <p>A mid-sized manufacturing company reduced their project delivery time by 40% by implementing automated workflows and real-time collaboration tools.</p>
+                    
+                    <h4>Key Changes:</h4>
+                    <ul>
+                        <li>Migrated from paper-based processes to digital workflows</li>
+                        <li>Implemented real-time project tracking</li>
+                        <li>Automated quality control processes</li>
+                    </ul>
+                    
+                    <h3>Case Study 2: Financial Services Firm</h3>
+                    <p>A financial services company improved client satisfaction by 60% through digital process optimization and enhanced communication tools.</p>
+                    
+                    <h4>Transformation Highlights:</h4>
+                    <ul>
+                        <li>Streamlined client onboarding process</li>
+                        <li>Implemented secure document sharing</li>
+                        <li>Created automated reporting systems</li>
+                    </ul>
+                    
+                    <h3>Common Success Factors</h3>
+                    <p>Successful digital transformations share several key characteristics: strong leadership support, employee training, phased implementation, and continuous improvement.</p>
+                    
+                    <h3>Your Transformation Journey</h3>
+                    <p>Ready to start your digital transformation? We can help you identify opportunities and implement solutions that drive real business results.</p>
+                `,
+        },
+        blog4: {
+          title: "Building Scalable Marketplace Apps",
+          meta: "Nov 28, 2024 • 6 min read • Development",
+          content: `
+                    <h3>The Atlassian Marketplace Opportunity</h3>
+                    <p>The Atlassian Marketplace represents a significant opportunity for developers and businesses to extend the functionality of popular tools like Jira and Confluence.</p>
+                    
+                    <h3>Planning Your App</h3>
+                    
+                    <h4>1. Market Research</h4>
+                    <p>Understand your target audience and identify gaps in the current marketplace offerings.</p>
+                    
+                    <h4>2. Technical Architecture</h4>
+                    <p>Design your app with scalability in mind from day one. Consider factors like performance, security, and maintainability.</p>
+                    
+                    <h4>3. User Experience</h4>
+                    <p>Create intuitive interfaces that integrate seamlessly with Atlassian's design language and user expectations.</p>
+                    
+                    <h3>Development Best Practices</h3>
+                    <ul>
+                        <li>Follow Atlassian's development guidelines</li>
+                        <li>Implement comprehensive testing strategies</li>
+                        <li>Plan for internationalization from the start</li>
+                        <li>Design with performance optimization in mind</li>
+                    </ul>
+                    
+                    <h3>Launch and Growth</h3>
+                    <p>A successful launch requires careful planning, effective marketing, and ongoing customer support. Focus on gathering user feedback and iterating quickly.</p>
+                    
+                    <h3>Partner with Experts</h3>
+                    <p>Building marketplace apps requires specialized knowledge. Our team has extensive experience developing successful Atlassian Marketplace applications. Let us help you bring your idea to market.</p>
+                `,
+        },
+        blog5: {
+          title: "Security Best Practices for Enterprise Apps",
+          meta: "Nov 20, 2024 • 5 min read • Security",
+          content: `
+                    <h3>Security in the Enterprise Context</h3>
+                    <p>Enterprise applications handle sensitive data and critical business processes, making security a top priority throughout the development lifecycle.</p>
+                    
+                    <h3>Fundamental Security Principles</h3>
+                    
+                    <h4>1. Defense in Depth</h4>
+                    <p>Implement multiple layers of security controls to protect against various types of threats and vulnerabilities.</p>
+                    
+                    <h4>2. Principle of Least Privilege</h4>
+                    <p>Grant users and systems only the minimum access necessary to perform their functions.</p>
+                    
+                    <h4>3. Security by Design</h4>
+                    <p>Integrate security considerations into every phase of the development process, not as an afterthought.</p>
+                    
+                    <h3>Key Security Measures</h3>
+                    <ul>
+                        <li>Strong authentication and authorization mechanisms</li>
+                        <li>Data encryption in transit and at rest</li>
+                        <li>Regular security audits and penetration testing</li>
+                        <li>Secure coding practices and code reviews</li>
+                        <li>Comprehensive logging and monitoring</li>
+                    </ul>
+                    
+                    <h3>Compliance Considerations</h3>
+                    <p>Enterprise applications often need to comply with various regulations such as GDPR, HIPAA, or SOX. Understanding these requirements early in the development process is crucial.</p>
+                    
+                    <h3>Ongoing Security Management</h3>
+                    <p>Security is not a one-time implementation but an ongoing process that requires regular updates, monitoring, and improvement.</p>
+                    
+                    <h3>Expert Security Guidance</h3>
+                    <p>Implementing enterprise-grade security requires specialized expertise. Our team can help you design and implement robust security measures for your applications.</p>
+                `,
+        },
+      };
+
+      function showBlogModal(blogId) {
+        const modal = document.getElementById("blogModal");
+        const blog = blogContent[blogId];
+
+        if (blog) {
+          document.getElementById("modalTitle").textContent = blog.title;
+          document.getElementById(
+            "modalMeta"
+          ).innerHTML = `<span class="code-font">${blog.meta}</span>`;
+          document.getElementById("modalContent").innerHTML = blog.content;
+          modal.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        }
+      }
+
+      function closeBlogModal() {
+        const modal = document.getElementById("blogModal");
+        modal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+
+      function showAllBlogs() {
+        alert(
+          "This would navigate to a dedicated blog listing page with pagination, search, and filtering capabilities. In a real implementation, this would be a separate page or route."
+        );
+      }
+
+      // Close modal when clicking outside
+      document
+        .getElementById("blogModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeBlogModal();
+          }
+        });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeBlogModal();
+        }
+      });
+
       // Initialize animations on page load
       window.addEventListener("load", () => {
+        // Initialize theme
+        initializeTheme();
+
         // Trigger initial animations for elements in viewport
         document
           .querySelectorAll(
@@ -1644,7 +2499,7 @@
           if (b) {
             var d = b.createElement("script");
             d.innerHTML =
-              "window.__CF$cv$params={r:'97b6546b56e3851f',t:'MTc1NzI0OTQwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+              "window.__CF$cv$params={r:'97beaffe84f0a6dc',t:'MTc1NzMzNzA0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
             b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
